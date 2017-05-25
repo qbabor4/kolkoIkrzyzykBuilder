@@ -20,7 +20,9 @@ TForm1 *Form1;
 - guzik z nowa gra po zakonczneiu rundy
 - zapisywanie wynikiow oddzielnych graczy do oddzielnych plikow
 - pobieranie wynikow jak nick jest taki jak nazwa pliku ( pytanie czy pobrac )
+- labele w miejscach na znak. jak kliknie na label to taka pozycja ( nie z canvas )
 */
+
 
 class Player{
     string nick;
@@ -79,55 +81,45 @@ class Player{
 
 class Board{
     char boardData[9];
-    string correctMoves[9];
-
-    Board(){
-        //// JEZU DLACZEGO???
-        this -> correctMoves[0] = "a1";
-        this -> correctMoves[1] = "a2";
-        this -> correctMoves[2] = "a3";
-        this -> correctMoves[3] = "b1";
-        this -> correctMoves[4] = "b2";
-        this -> correctMoves[5] = "b3";
-        this -> correctMoves[6] = "c1";
-        this -> correctMoves[7] = "c2";
-        this -> correctMoves[8] = "c3";
-    
-    }
-    
-    int get_int_move(string moveLocation){
-        int moveInt;
-        char moveLocationLetter = moveLocation[0];
-        if ( moveLocationLetter == 'a' ) {
-            moveInt = (int)moveLocation[1] - '0' -1;
-        }
-        else if ( moveLocationLetter == 'b'){
-            moveInt = ((int)moveLocation[1] - '0') + 2;
-        }
-        else if ( moveLocationLetter == 'c'){
-            moveInt = ((int)moveLocation[1] - '0') + 5;
-        }
-
-        return moveInt;
-    }
 
     void set_move_on_board(int moveInt, char playersChar){
         boardData[ moveInt ] = playersChar;
     }
 
+    void put_char_on_label(int moveInt, char playersChar){
+        if (moveInt == 0){
+                Form1 -> Label11 -> Caption = playersChar;
+                Form1 -> Label11 -> Visible = true;
+        }  else if ( moveInt == 1 ) {
+                Form1 -> Label12 -> Caption = playersChar;
+        }  else if ( moveInt == 2 ) {
+                Form1 -> Label12 -> Caption = playersChar;
+        }  else if ( moveInt == 3 ) {
+                Form1 -> Label12 -> Caption = playersChar;
+        }  else if ( moveInt == 4 ) {
+                Form1 -> Label12 -> Caption = playersChar;
+        }  else if ( moveInt == 5 ) {
+                Form1 -> Label12 -> Caption = playersChar;
+        }  else if ( moveInt == 6 ) {
+                Form1 -> Label12 -> Caption = playersChar;
+        }  else if ( moveInt == 7 ) {
+                Form1 -> Label12 -> Caption = playersChar;
+        }  else if ( moveInt == 8 ) {
+                Form1 -> Label12 -> Caption = playersChar;
+        } 
+    }
+
     public:
-
-
     void fill_board(){
         for (int i = 0; i < 9; i++ ){
-            boardData[i] = '_';
+            boardData[i] = ' ';
         }
     }
 
     bool is_full_board(){
         bool fullBoard = true;
         for (int i = 0; i < 9; i++){
-            if (boardData[i] == '_'){
+            if (boardData[i] == ' '){
                 fullBoard = false;
                 break;
             }
@@ -135,43 +127,11 @@ class Board{
         return fullBoard;
     }
 
-    void draw_board(){
-        cout << endl << "  1 2 3 " << endl;
-        cout << "A ";
-        for (int i = 0; i < 3; i++){
-            cout << boardData[i] << " ";
-        }
-        cout << endl;
-        cout << "B ";
-        for (int i = 3; i < 6; i++){
-            cout << boardData[i] << " ";
-        }
-        cout << endl;
-        cout << "C ";
-        for (int i = 6; i < 9; i++){
-            cout << boardData[i] << " ";
-        }
-        cout << endl << endl;
-    }
 
-    // returns true if moveLocation is correct
-    bool check_move(string moveLocation){
-        bool correctMove = false;
-        for (int i = 0; i < 9; i++){
-            if ( moveLocation == correctMoves[i]){
-                if ( boardData[i] == '_'){
-                    correctMove = true;
-                    break;
-                }
-            }
-        }
-        return correctMove;
-    }
-
-    void move(string moveLocation, Player p){
+    void move(int moveLocation, Player p){
         char playersChar = p.get_players_char();
-        int moveInt = get_int_move( moveLocation );
-        set_move_on_board( moveInt, playersChar );
+        set_move_on_board( moveLocation, playersChar );
+        put_char_on_label( moveLocation, playersChar );
     }
 
     bool is_win( Player p ){
@@ -199,15 +159,19 @@ class Board{
 
 Player p1;
 Player p2;
+Board b1;
 int playerNumber = 0;
 
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner): TForm(Owner){
 
             p1.set_players_char( 'x' );
-            char playersChar = p1.get_players_char();
+            p2.set_players_char( 'O' );
 
-            Label1 ->  Caption = playersChar;
+            b1.fill_board();
+            //char playersChar = p1.get_players_char();
+
+            //Label1 ->  Caption = playersChar; */
 }
 //---------------------------------------------------------------------------
 
@@ -234,6 +198,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
                 Button1 ->  Visible  = false;
                 Edit1 -> Visible = false;
                 delete Panel1;
+                // tu nowa runda
         }
         //Label5 -> Caption  = nick.c_str();
         Edit1->Clear();
@@ -284,6 +249,8 @@ void __fastcall TForm1::put_character(TObject *Sender)
         int position = get_mouse_position();
         if (position > -1 && position < 9){
                 Label5 -> Caption = position;
+                b1.move( position , p1 );
         }
+}
 //---------------------------------------------------------------------------
 

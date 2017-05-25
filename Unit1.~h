@@ -29,6 +29,15 @@ __published:	// IDE-managed Components
         TLabel *Label8;
         TLabel *Label9;
         TLabel *Label10;
+        TLabel *Label11;
+        TLabel *Label12;
+        TLabel *Label13;
+        TLabel *Label14;
+        TLabel *Label15;
+        TLabel *Label16;
+        TLabel *Label17;
+        TLabel *Label18;
+        TLabel *Label19;
         void __fastcall Button1Click(TObject *Sender);
         void __fastcall put_character(TObject *Sender);
 private:	// User declarations

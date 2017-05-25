@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 1137
-  Top = 203
+  Left = 584
+  Top = 273
   Width = 710
   Height = 375
   Caption = 'Form1'
@@ -143,6 +143,78 @@ object Form1: TForm1
     Font.Name = 'MS Sans Serif'
     Font.Style = [fsBold]
     ParentFont = False
+  end
+  object Label11: TLabel
+    Left = 40
+    Top = 40
+    Width = 81
+    Height = 73
+    Caption = 'Label11'
+    Visible = False
+  end
+  object Label12: TLabel
+    Left = 128
+    Top = 40
+    Width = 89
+    Height = 73
+    Caption = 'Label12'
+    Visible = False
+  end
+  object Label13: TLabel
+    Left = 224
+    Top = 40
+    Width = 81
+    Height = 73
+    Caption = 'Label13'
+    Visible = False
+  end
+  object Label14: TLabel
+    Left = 40
+    Top = 120
+    Width = 81
+    Height = 73
+    Caption = 'Label14'
+    Visible = False
+  end
+  object Label15: TLabel
+    Left = 128
+    Top = 120
+    Width = 89
+    Height = 73
+    Caption = 'Label15'
+    Visible = False
+  end
+  object Label16: TLabel
+    Left = 224
+    Top = 120
+    Width = 81
+    Height = 73
+    Caption = 'Label16'
+    Visible = False
+  end
+  object Label17: TLabel
+    Left = 40
+    Top = 200
+    Width = 81
+    Height = 89
+    Caption = 'Label17'
+    Visible = False
+  end
+  object Label18: TLabel
+    Left = 128
+    Top = 200
+    Width = 89
+    Height = 89
+    Caption = 'Label18'
+    Visible = False
+  end
+  object Label19: TLabel
+    Left = 224
+    Top = 200
+    Width = 81
+    Height = 89
+    Caption = 'Label19'
+    Visible = False
   end
   object Edit1: TEdit
     Left = 480
