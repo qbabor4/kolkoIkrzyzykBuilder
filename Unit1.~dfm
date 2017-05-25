@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 522
-  Top = 185
+  Left = 1137
+  Top = 203
   Width = 710
   Height = 375
   Caption = 'Form1'
@@ -11,7 +11,7 @@ object Form1: TForm1
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
-  OnClick = putCharacter
+  OnClick = put_character
   PixelsPerInch = 120
   TextHeight = 16
   object Shape1: TShape

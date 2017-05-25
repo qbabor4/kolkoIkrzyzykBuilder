@@ -14,8 +14,12 @@ using namespace std;
 TForm1 *Form1;
 
 /* TODO
-- jak nacisnie na canvas to spradza lokacje nacisniecia i potem robi cos na wybranym polu, albo nic nie robi
-
+- dostac gracza, ktory bedzie mial teraz ruch
+- pokazac dane gracza po prawej
+- guzik, ktory pokazuje, wyniki ( po zakonczeniu rundy )
+- guzik z nowa gra po zakonczneiu rundy
+- zapisywanie wynikiow oddzielnych graczy do oddzielnych plikow
+- pobieranie wynikow jak nick jest taki jak nazwa pliku ( pytanie czy pobrac )
 */
 
 class Player{
@@ -235,15 +239,11 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
         Edit1->Clear();
 }
 //---------------------------------------------------------------------------
-
-
-void __fastcall TForm1::putCharacter(TObject *Sender)
-{
+int get_mouse_position(){
         POINT p;
         GetCursorPos(&p);
         int posX = p.x - Form1 -> Left;
         int posY = p.y - Form1 -> Top - 30;
-
         // a1 = x 50-127 y 50 - 116
         // a2 = x 138 224
         // a3 = x 234 310
@@ -253,10 +253,37 @@ void __fastcall TForm1::putCharacter(TObject *Sender)
         // c1 = x 50-127 y = 208 293
         // c2 = x 138 224
         // c3 = x 234 310
-        if (posX > 50 && posX < 127 && posY > 50 && posY < 116 ){
-                Label5 -> Caption = posX;
-                Label6 -> Caption = posY;
-        }        
+        int num;
+        int add;
+        int position;
+        if (posX > 50 && posX < 127){
+                num = 1;
+        } else if ( posX > 138 && posX < 224 ){
+                num = 2;
+        } else if ( posX > 234 && posX < 310 ){
+                num = 3;                                                      
+        }
+        if ( posY > 50 && posY < 116 && posX < 310 && posX > 50) {
+                add = 0;
+        } else if ( posY > 127 && posY < 198 && posX < 310 && posX > 50 ){
+                add = 3;
+        } else if ( posY > 208 && posY < 293 && posX < 310 && posX > 50 ){
+                add = 6;
+        }
+        position = num + add -1;
+        if (position > -1 && position < 9 ){
+                //Form1 -> Label5 -> Caption = position;
+                return position;
+        }
+
 }
+
+
+void __fastcall TForm1::put_character(TObject *Sender)
+{
+        int position = get_mouse_position();
+        if (position > -1 && position < 9){
+                Label5 -> Caption = position;
+        }
 //---------------------------------------------------------------------------
 
