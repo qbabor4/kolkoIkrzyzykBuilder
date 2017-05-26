@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 584
-  Top = 273
+  Left = 744
+  Top = 284
   Width = 710
   Height = 375
   Caption = 'Form1'
@@ -30,13 +30,13 @@ object Form1: TForm1
     Left = 120
     Top = 40
     Width = 9
-    Height = 249
+    Height = 233
   end
   object Shape4: TShape
     Left = 216
     Top = 40
     Width = 9
-    Height = 249
+    Height = 233
   end
   object Label1: TLabel
     Left = 544
@@ -145,35 +145,67 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label11: TLabel
-    Left = 40
-    Top = 40
-    Width = 81
-    Height = 73
-    Caption = 'Label11'
+    Left = 32
+    Top = 32
+    Width = 89
+    Height = 81
+    Alignment = taCenter
+    Caption = ' '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
     Visible = False
   end
   object Label12: TLabel
     Left = 128
-    Top = 40
+    Top = 32
     Width = 89
-    Height = 73
-    Caption = 'Label12'
+    Height = 81
+    Alignment = taCenter
+    Caption = ' '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
     Visible = False
   end
   object Label13: TLabel
     Left = 224
-    Top = 40
-    Width = 81
-    Height = 73
-    Caption = 'Label13'
+    Top = 32
+    Width = 89
+    Height = 81
+    Alignment = taCenter
+    Caption = ' '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
     Visible = False
   end
   object Label14: TLabel
-    Left = 40
+    Left = 32
     Top = 120
-    Width = 81
+    Width = 89
     Height = 73
-    Caption = 'Label14'
+    Alignment = taCenter
+    Caption = ' '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
     Visible = False
   end
   object Label15: TLabel
@@ -181,39 +213,79 @@ object Form1: TForm1
     Top = 120
     Width = 89
     Height = 73
-    Caption = 'Label15'
+    Alignment = taCenter
+    Caption = ' '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
     Visible = False
   end
   object Label16: TLabel
     Left = 224
     Top = 120
-    Width = 81
+    Width = 89
     Height = 73
-    Caption = 'Label16'
+    Alignment = taCenter
+    Caption = ' '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
     Visible = False
   end
   object Label17: TLabel
-    Left = 40
+    Left = 32
     Top = 200
-    Width = 81
-    Height = 89
-    Caption = 'Label17'
+    Width = 89
+    Height = 73
+    Alignment = taCenter
+    Caption = ' '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
     Visible = False
   end
   object Label18: TLabel
     Left = 128
     Top = 200
     Width = 89
-    Height = 89
-    Caption = 'Label18'
+    Height = 73
+    Alignment = taCenter
+    Caption = ' '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
     Visible = False
   end
   object Label19: TLabel
     Left = 224
     Top = 200
-    Width = 81
-    Height = 89
-    Caption = 'Label19'
+    Width = 89
+    Height = 73
+    Alignment = taCenter
+    Caption = ' '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
     Visible = False
   end
   object Edit1: TEdit
@@ -234,8 +306,8 @@ object Form1: TForm1
     OnClick = Button1Click
   end
   object Panel1: TPanel
-    Left = 0
-    Top = 0
+    Left = 152
+    Top = -304
     Width = 369
     Height = 329
     TabOrder = 2

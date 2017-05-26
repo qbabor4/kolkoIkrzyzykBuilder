@@ -89,23 +89,69 @@ class Board{
     void put_char_on_label(int moveInt, char playersChar){
         if (moveInt == 0){
                 Form1 -> Label11 -> Caption = playersChar;
-                Form1 -> Label11 -> Visble = true;
+                Form1 -> Label11 -> Width = 89;
+                Form1 -> Label11 -> Height = 81;
+                Form1 -> Label11 -> Alignment = tlCenter;
+                Form1 -> Label11 -> Alignment = taCenter;
+                Form1 -> Label11 -> Visible = true;
+
+                //Form1 -> Label11 -> Alignment = taCenter;
         }  else if ( moveInt == 1 ) {
                 Form1 -> Label12 -> Caption = playersChar;
+                Form1 -> Label12 -> Width = 89;
+                Form1 -> Label12 -> Height = 81;
+                Form1 -> Label12 -> Alignment = tlCenter;
+                Form1 -> Label12 -> Alignment = taCenter;
+                Form1 -> Label12 -> Visible = true;
         }  else if ( moveInt == 2 ) {
-                Form1 -> Label12 -> Caption = playersChar;
+                Form1 -> Label13 -> Caption = playersChar;
+                Form1 -> Label13 -> Width = 89;
+                Form1 -> Label13 -> Height = 81;
+                Form1 -> Label13 -> Alignment = tlCenter;
+                Form1 -> Label13 -> Alignment = taCenter;
+                Form1 -> Label13 -> Visible = true;
         }  else if ( moveInt == 3 ) {
-                Form1 -> Label12 -> Caption = playersChar;
+                Form1 -> Label14 -> Caption = playersChar;
+                Form1 -> Label14 -> Width = 89;
+                Form1 -> Label14 -> Height = 74;
+                Form1 -> Label14 -> Alignment = tlCenter;
+                Form1 -> Label14 -> Alignment = taCenter;
+                Form1 -> Label14 -> Visible = true;
         }  else if ( moveInt == 4 ) {
-                Form1 -> Label12 -> Caption = playersChar;
+                Form1 -> Label15 -> Caption = playersChar;
+                Form1 -> Label15 -> Width = 89;
+                Form1 -> Label15 -> Height = 74;
+                Form1 -> Label15 -> Alignment = tlCenter;
+                Form1 -> Label15 -> Alignment = taCenter;
+                Form1 -> Label15 -> Visible = true;
         }  else if ( moveInt == 5 ) {
-                Form1 -> Label12 -> Caption = playersChar;
+                Form1 -> Label16 -> Caption = playersChar;
+                Form1 -> Label16 -> Width = 89;
+                Form1 -> Label16 -> Height = 74;
+                Form1 -> Label16 -> Alignment = tlCenter;
+                Form1 -> Label16 -> Alignment = taCenter;
+                Form1 -> Label16 -> Visible = true;
         }  else if ( moveInt == 6 ) {
-                Form1 -> Label12 -> Caption = playersChar;
+                Form1 -> Label17 -> Caption = playersChar;
+                Form1 -> Label17 -> Width = 89;
+                Form1 -> Label17 -> Height = 74;
+                Form1 -> Label17 -> Alignment = tlCenter;
+                Form1 -> Label17 -> Alignment = taCenter;
+                Form1 -> Label17 -> Visible = true;
         }  else if ( moveInt == 7 ) {
-                Form1 -> Label12 -> Caption = playersChar;
+                Form1 -> Label18 -> Caption = playersChar;
+                Form1 -> Label18 -> Width = 89;
+                Form1 -> Label18 -> Height = 74;
+                Form1 -> Label18 -> Alignment = tlCenter;
+                Form1 -> Label18 -> Alignment = taCenter;
+                Form1 -> Label18 -> Visible = true;
         }  else if ( moveInt == 8 ) {
-                Form1 -> Label12 -> Caption = playersChar;
+                Form1 -> Label19 -> Caption = playersChar;
+                Form1 -> Label19 -> Width = 89;
+                Form1 -> Label19 -> Height = 74;
+                Form1 -> Label19 -> Alignment = tlCenter;
+                Form1 -> Label19 -> Alignment = taCenter;
+                Form1 -> Label19 -> Visible = true;
         } 
     }
 
@@ -215,7 +261,7 @@ int get_mouse_position(){
         // b1 = x 50-127 y 127 - 198
         // b2 = x 138 224
         // b3 = x 234 310
-        // c1 = x 50-127 y = 208 293
+        // c1 = x 50-127 y = 208 278
         // c2 = x 138 224
         // c3 = x 234 310
         int num;
@@ -232,12 +278,12 @@ int get_mouse_position(){
                 add = 0;
         } else if ( posY > 127 && posY < 198 && posX < 310 && posX > 50 ){
                 add = 3;
-        } else if ( posY > 208 && posY < 293 && posX < 310 && posX > 50 ){
+        } else if ( posY > 208 && posY < 278 && posX < 310 && posX > 50 ){
                 add = 6;
         }
         position = num + add -1;
         if (position > -1 && position < 9 ){
-                //Form1 -> Label5 -> Caption = position;
+                Form1 -> Label6 -> Caption = posY;
                 return position;
         }
 
