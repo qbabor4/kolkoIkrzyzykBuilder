@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 744
-  Top = 284
+  Left = 1100
+  Top = 251
   Width = 710
   Height = 375
   Caption = 'Form1'
@@ -39,11 +39,16 @@ object Form1: TForm1
     Height = 233
   end
   object Label1: TLabel
-    Left = 544
-    Top = 256
-    Width = 41
-    Height = 16
-    Caption = 'Label1'
+    Left = 384
+    Top = 72
+    Width = 5
+    Height = 24
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -18
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
   end
   object Label2: TLabel
     Left = 432
@@ -79,18 +84,18 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label5: TLabel
-    Left = 440
-    Top = 248
-    Width = 41
-    Height = 16
+    Left = 504
+    Top = 72
+    Width = 56
+    Height = 24
     Caption = 'Label5'
-  end
-  object Label6: TLabel
-    Left = 440
-    Top = 264
-    Width = 41
-    Height = 16
-    Caption = 'Label6'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -18
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    Visible = False
   end
   object Label7: TLabel
     Left = 40
@@ -147,8 +152,8 @@ object Form1: TForm1
   object Label11: TLabel
     Left = 32
     Top = 32
-    Width = 89
-    Height = 81
+    Width = 11
+    Height = 37
     Alignment = taCenter
     Caption = ' '
     Font.Charset = DEFAULT_CHARSET
@@ -163,8 +168,8 @@ object Form1: TForm1
   object Label12: TLabel
     Left = 128
     Top = 32
-    Width = 89
-    Height = 81
+    Width = 11
+    Height = 37
     Alignment = taCenter
     Caption = ' '
     Font.Charset = DEFAULT_CHARSET
@@ -179,8 +184,8 @@ object Form1: TForm1
   object Label13: TLabel
     Left = 224
     Top = 32
-    Width = 89
-    Height = 81
+    Width = 11
+    Height = 37
     Alignment = taCenter
     Caption = ' '
     Font.Charset = DEFAULT_CHARSET
@@ -195,8 +200,8 @@ object Form1: TForm1
   object Label14: TLabel
     Left = 32
     Top = 120
-    Width = 89
-    Height = 73
+    Width = 11
+    Height = 37
     Alignment = taCenter
     Caption = ' '
     Font.Charset = DEFAULT_CHARSET
@@ -211,8 +216,8 @@ object Form1: TForm1
   object Label15: TLabel
     Left = 128
     Top = 120
-    Width = 89
-    Height = 73
+    Width = 11
+    Height = 37
     Alignment = taCenter
     Caption = ' '
     Font.Charset = DEFAULT_CHARSET
@@ -227,8 +232,8 @@ object Form1: TForm1
   object Label16: TLabel
     Left = 224
     Top = 120
-    Width = 89
-    Height = 73
+    Width = 11
+    Height = 37
     Alignment = taCenter
     Caption = ' '
     Font.Charset = DEFAULT_CHARSET
@@ -243,8 +248,8 @@ object Form1: TForm1
   object Label17: TLabel
     Left = 32
     Top = 200
-    Width = 89
-    Height = 73
+    Width = 11
+    Height = 37
     Alignment = taCenter
     Caption = ' '
     Font.Charset = DEFAULT_CHARSET
@@ -259,8 +264,8 @@ object Form1: TForm1
   object Label18: TLabel
     Left = 128
     Top = 200
-    Width = 89
-    Height = 73
+    Width = 11
+    Height = 37
     Alignment = taCenter
     Caption = ' '
     Font.Charset = DEFAULT_CHARSET
@@ -275,8 +280,8 @@ object Form1: TForm1
   object Label19: TLabel
     Left = 224
     Top = 200
-    Width = 89
-    Height = 73
+    Width = 11
+    Height = 37
     Alignment = taCenter
     Caption = ' '
     Font.Charset = DEFAULT_CHARSET
@@ -286,6 +291,172 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
     Layout = tlCenter
+    Visible = False
+  end
+  object Label20: TLabel
+    Left = 384
+    Top = 8
+    Width = 61
+    Height = 24
+    Caption = 'Gracz:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -18
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label21: TLabel
+    Left = 448
+    Top = 8
+    Width = 5
+    Height = 24
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -18
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    Visible = False
+  end
+  object Label22: TLabel
+    Left = 384
+    Top = 40
+    Width = 53
+    Height = 24
+    Caption = 'Znak:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -18
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Visible = False
+  end
+  object Label23: TLabel
+    Left = 440
+    Top = 40
+    Width = 5
+    Height = 24
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -18
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    Visible = False
+  end
+  object Label6: TLabel
+    Left = 400
+    Top = 200
+    Width = 41
+    Height = 16
+    Caption = 'Label6'
+    Visible = False
+  end
+  object Label24: TLabel
+    Left = 400
+    Top = 232
+    Width = 58
+    Height = 16
+    Caption = 'Wygrane:'
+    Visible = False
+  end
+  object Label25: TLabel
+    Left = 400
+    Top = 264
+    Width = 62
+    Height = 16
+    Caption = 'Przegrane'
+    Visible = False
+  end
+  object Label26: TLabel
+    Left = 400
+    Top = 296
+    Width = 46
+    Height = 16
+    Caption = 'Remisy'
+    Visible = False
+  end
+  object Label27: TLabel
+    Left = 560
+    Top = 200
+    Width = 48
+    Height = 16
+    Caption = 'Label27'
+    Visible = False
+  end
+  object Label28: TLabel
+    Left = 560
+    Top = 232
+    Width = 55
+    Height = 16
+    Caption = 'Wygrane'
+    Visible = False
+  end
+  object Label29: TLabel
+    Left = 560
+    Top = 264
+    Width = 62
+    Height = 16
+    Caption = 'Przegrane'
+    Visible = False
+  end
+  object Label30: TLabel
+    Left = 560
+    Top = 296
+    Width = 46
+    Height = 16
+    Caption = 'Remisy'
+    Visible = False
+  end
+  object Label31: TLabel
+    Left = 472
+    Top = 232
+    Width = 48
+    Height = 16
+    Caption = 'Label31'
+    Visible = False
+  end
+  object Label32: TLabel
+    Left = 472
+    Top = 264
+    Width = 48
+    Height = 16
+    Caption = 'Label32'
+    Visible = False
+  end
+  object Label33: TLabel
+    Left = 472
+    Top = 296
+    Width = 48
+    Height = 16
+    Caption = 'Label33'
+    Visible = False
+  end
+  object Label34: TLabel
+    Left = 632
+    Top = 232
+    Width = 48
+    Height = 16
+    Caption = 'Label34'
+    Visible = False
+  end
+  object Label35: TLabel
+    Left = 632
+    Top = 264
+    Width = 48
+    Height = 16
+    Caption = 'Label35'
+    Visible = False
+  end
+  object Label36: TLabel
+    Left = 632
+    Top = 296
+    Width = 48
+    Height = 16
+    Caption = 'Label36'
     Visible = False
   end
   object Edit1: TEdit
@@ -306,10 +477,30 @@ object Form1: TForm1
     OnClick = Button1Click
   end
   object Panel1: TPanel
-    Left = 152
-    Top = -304
+    Left = 0
+    Top = 0
     Width = 369
     Height = 329
     TabOrder = 2
+  end
+  object Button2: TButton
+    Left = 408
+    Top = 128
+    Width = 105
+    Height = 25
+    Caption = 'Pokaz wyniki'
+    TabOrder = 3
+    Visible = False
+    OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 544
+    Top = 128
+    Width = 105
+    Height = 25
+    Caption = 'Nastepna runda'
+    TabOrder = 4
+    Visible = False
+    OnClick = Button3Click
   end
 end

@@ -23,7 +23,6 @@ __published:	// IDE-managed Components
         TLabel *Label4;
         TButton *Button1;
         TLabel *Label5;
-        TLabel *Label6;
         TPanel *Panel1;
         TLabel *Label7;
         TLabel *Label8;
@@ -38,8 +37,30 @@ __published:	// IDE-managed Components
         TLabel *Label17;
         TLabel *Label18;
         TLabel *Label19;
+        TLabel *Label20;
+        TLabel *Label21;
+        TLabel *Label22;
+        TLabel *Label23;
+        TButton *Button2;
+        TButton *Button3;
+        TLabel *Label6;
+        TLabel *Label24;
+        TLabel *Label25;
+        TLabel *Label26;
+        TLabel *Label27;
+        TLabel *Label28;
+        TLabel *Label29;
+        TLabel *Label30;
+        TLabel *Label31;
+        TLabel *Label32;
+        TLabel *Label33;
+        TLabel *Label34;
+        TLabel *Label35;
+        TLabel *Label36;
         void __fastcall Button1Click(TObject *Sender);
         void __fastcall put_character(TObject *Sender);
+        void __fastcall Button3Click(TObject *Sender);
+        void __fastcall Button2Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);

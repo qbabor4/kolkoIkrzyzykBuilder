@@ -155,11 +155,28 @@ class Board{
         } 
     }
 
-    public:
-    void fill_board(){
+    void reset_board_data(){
         for (int i = 0; i < 9; i++ ){
             boardData[i] = ' ';
         }
+    }
+
+    void reset_board_labels(){
+        Form1 -> Label11 -> Visible = false;
+        Form1 -> Label12 -> Visible = false;
+        Form1 -> Label13 -> Visible = false;
+        Form1 -> Label14 -> Visible = false;
+        Form1 -> Label15 -> Visible = false;
+        Form1 -> Label16 -> Visible = false;
+        Form1 -> Label17 -> Visible = false;
+        Form1 -> Label18 -> Visible = false;
+        Form1 -> Label19 -> Visible = false;
+    }
+
+    public:
+    void reset_board(){
+        reset_board_data();
+        reset_board_labels();
     }
 
     bool is_full_board(){
@@ -207,20 +224,18 @@ Player p1;
 Player p2;
 Board b1;
 int playerNumber = 0;
+int moveNumber = 0;
+bool win = false;
 
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner): TForm(Owner){
 
-            p1.set_players_char( 'x' );
+
+            p1.set_players_char( 'X' );
             p2.set_players_char( 'O' );
-
-            b1.fill_board();
-            //char playersChar = p1.get_players_char();
-
-            //Label1 ->  Caption = playersChar; */
+            b1.reset_board();
 }
 //---------------------------------------------------------------------------
-
 
 
 void __fastcall TForm1::Button1Click(TObject *Sender)
@@ -228,13 +243,13 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
         string nick = (Edit1 -> Text).c_str();
         if (playerNumber == 0){
                 p1.set_nick( nick );
-                p1.set_players_char( 'x' );
+
                 playerNumber++;
                 Label4 -> Caption = "Gracz 2";
         }
         else if (playerNumber == 1){
                 p2.set_nick( nick );
-                p1.set_players_char( 'O' );
+                p2.set_players_char( 'O' );
                 playerNumber++;
                 delete Label2;
                 delete Label3;
@@ -244,7 +259,16 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
                 Button1 ->  Visible  = false;
                 Edit1 -> Visible = false;
                 delete Panel1;
-                // tu nowa runda
+                // tu poczatek gry
+                Label20 -> Visible = true;
+                Label21 -> Caption = p1.get_nick().c_str();
+                Label21 -> Visible = true;
+
+                Label22 -> Visible = true;
+                Label23 -> Caption = p1.get_players_char();
+                Label23 -> Visible = true;
+
+
         }
         //Label5 -> Caption  = nick.c_str();
         Edit1->Clear();
@@ -283,7 +307,7 @@ int get_mouse_position(){
         }
         position = num + add -1;
         if (position > -1 && position < 9 ){
-                Form1 -> Label6 -> Caption = posY;
+                //Form1 -> Label6 -> Caption = posY;
                 return position;
         }
 
@@ -293,10 +317,123 @@ int get_mouse_position(){
 void __fastcall TForm1::put_character(TObject *Sender)
 {
         int position = get_mouse_position();
-        if (position > -1 && position < 9){
-                Label5 -> Caption = position;
-                b1.move( position , p1 );
+        if (!win) {
+                if (position > -1 && position < 9){
+
+                        if (moveNumber % 2 == 0){
+                        // gracz 1
+                                b1.move( position , p1 );
+                                Label21 -> Caption = p2.get_nick().c_str();
+                                Label23 -> Caption = p2.get_players_char();
+
+                                if( b1.is_win( p1 )){
+                                        win = true;
+                                        Label5 -> Visible = true;
+                                        Label5 -> Caption =  p1.get_nick().c_str();
+                                        p1.round_won();
+                                        p2.round_lost();
+                                        Label1 -> Visible = true;
+                                        Label1 -> Caption = "Wygral gracz ";
+                                        Button2 -> Visible = true;
+                                        Button3 -> Visible = true;
+                                        // zapisywanie do pliku
+
+                                }
+
+                        } else {
+                        // gracz 2
+
+                                b1.move( position , p2 );
+                                Label21 -> Caption = p1.get_nick().c_str();
+                                Label23 -> Caption = p1.get_players_char();
+                                if( b1.is_win( p2 )){
+                                        win = true;
+                                        Label5 -> Visible = true;
+                                        Label5 -> Caption = p2.get_nick().c_str();
+                                        p2.round_won();
+                                        p1.round_lost();
+                                        Label1 -> Visible = true;
+                                        Label1 -> Caption = "Wygral gracz ";
+                                        Button2 -> Visible = true;
+                                        Button3 -> Visible = true;
+                                }
+                        }
+
+                        if (!win){
+                                if (b1.is_full_board()){
+                                        Label1 -> Visible = true;
+                                        Label1 -> Caption = "Remis";
+                                        p1.round_drawn();
+                                        p2.round_drawn();
+                                        Button2 -> Visible = true;
+                                        Button3 -> Visible = true;
+                                }
+                        }
+
+
+                        moveNumber++;
+                }
         }
+
+        
+}
+
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::Button3Click(TObject *Sender)
+{
+        b1.reset_board();
+        win = false;
+        Label1 -> Visible = false;
+        Label5 -> Visible = false;
+
+        Label6 -> Visible = false;
+        Label24 -> Visible = false;
+        Label25 -> Visible = false;
+        Label26 -> Visible = false;
+        Label27 -> Visible = false;
+        Label28 -> Visible = false;
+        Label29 -> Visible = false;
+        Label30 -> Visible = false;
+        Label31 -> Visible = false;
+        Label32 -> Visible = false;
+        Label33 -> Visible = false;
+        Label34 -> Visible = false;
+        Label35 -> Visible = false;
+        Label36 -> Visible = false;
+        Button2 -> Visible = false;
+        Button3 -> Visible = false;
+
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm1::Button2Click(TObject *Sender)
+{
+        Label6 -> Visible = true;
+        Label6 -> Caption = p1.get_nick().c_str();
+        Label24 -> Visible = true;
+        Label25 -> Visible = true;
+        Label26 -> Visible = true;
+        Label27 -> Visible = true;
+        Label27 -> Caption = p2.get_nick().c_str();
+        Label28 -> Visible = true;
+        Label29 -> Visible = true;
+        Label30 -> Visible = true;
+        Label31 -> Visible = true;
+        Label31 -> Caption = p1.get_num_of_wins();
+        Label32 -> Visible = true;
+        Label32 -> Caption = p1.get_num_of_loses();
+        Label33 -> Visible = true;
+        Label33 -> Caption = p1.get_num_of_draws();
+        Label34 -> Visible = true;
+        Label34 -> Caption = p2.get_num_of_wins();
+        Label35 -> Visible = true;
+        Label35 -> Caption = p2.get_num_of_loses();
+        Label36 -> Visible = true;
+        Label36 -> Caption = p2.get_num_of_draws();
 }
 //---------------------------------------------------------------------------
 
