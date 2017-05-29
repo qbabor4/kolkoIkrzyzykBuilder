@@ -5,6 +5,8 @@
 using namespace std;
 
 #include "Unit1.h"
+#include <fstream>
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -13,15 +15,7 @@ using namespace std;
 #include <iostream>
 TForm1 *Form1;
 
-/* TODO
-- dostac gracza, ktory bedzie mial teraz ruch
-- pokazac dane gracza po prawej
-- guzik, ktory pokazuje, wyniki ( po zakonczeniu rundy )
-- guzik z nowa gra po zakonczneiu rundy
-- zapisywanie wynikiow oddzielnych graczy do oddzielnych plikow
-- pobieranie wynikow jak nick jest taki jak nazwa pliku ( pytanie czy pobrac )
-- labele w miejscach na znak. jak kliknie na label to taka pozycja ( nie z canvas )
-*/
+
 
 
 class Player{
@@ -76,6 +70,18 @@ class Player{
 
     void round_drawn(){
         this->numOfDraws++;
+    }
+
+    void set_number_of_wins(int win){
+        this -> numOfwins = win;
+    }
+
+    void set_number_of_loses(int loses){
+        this -> numOfloses = loses;
+    }
+
+    void set_number_of_draws(int draws){
+        this->numOfDraws = draws;
     }
 };
 
@@ -246,10 +252,60 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 
                 playerNumber++;
                 Label4 -> Caption = "Gracz 2";
+
+                if ( ifstream (p1.get_nick().c_str())) {
+                        ifstream myfile (p1.get_nick().c_str() );
+                        Label4 -> Caption = " jest ";
+                        string line1, line2, line3, line4;
+                        
+                        getline (myfile,line1);
+                        getline (myfile,line2);
+                        getline (myfile,line3);
+                        getline (myfile,line4);
+                        p1.set_number_of_wins( atoi(line2.c_str()) );
+                        p1.set_number_of_loses( atoi(line3.c_str()) );
+                        p1.set_number_of_draws( atoi(line4.c_str()) );
+                 // jest plik
+                 // czytac z pliku
+                }  else {
+
+                        ofstream myFile (p1.get_nick().c_str());
+                        if ( myFile.is_open() ){
+                                myFile << p1.get_nick() << endl << p1.get_num_of_wins() << endl << p1.get_num_of_loses() << endl << p1.get_num_of_draws() << endl ;
+                                myFile.close();
+                        }
+                }
+
         }
         else if (playerNumber == 1){
                 p2.set_nick( nick );
                 p2.set_players_char( 'O' );
+
+                if ( ifstream(p2.get_nick().c_str())) {
+                        ifstream myfile2 (p2.get_nick().c_str() );
+                        Label4 -> Caption = " jest2 ";
+                        string line1, line2, line3, line4;
+                        
+                        getline (myfile2,line1);
+                        getline (myfile2,line2);
+                        getline (myfile2,line3);
+                        getline (myfile2,line4);
+                        p2.set_number_of_wins( atoi(line2.c_str()) );
+                        p2.set_number_of_loses( atoi(line3.c_str()) );
+                        p2.set_number_of_draws( atoi(line4.c_str()) );
+                 // jest plik
+                 // czytac z pliku
+                }  else {
+                        ofstream myFile (p2.get_nick().c_str());
+
+                        if (myFile.is_open() ){
+                                myFile << p2.get_nick() << endl << p2.get_num_of_wins() << endl << p2.get_num_of_loses() << endl << p2.get_num_of_draws() << endl ;
+                                myFile.close();
+                        }
+                }
+
+
+
                 playerNumber++;
                 delete Label2;
                 delete Label3;
@@ -336,7 +392,19 @@ void __fastcall TForm1::put_character(TObject *Sender)
                                         Label1 -> Caption = "Wygral gracz ";
                                         Button2 -> Visible = true;
                                         Button3 -> Visible = true;
-                                        // zapisywanie do pliku
+
+                                        ofstream myFile (p1.get_nick().c_str());
+                                        ofstream myFile2 (p2.get_nick().c_str());
+
+                                        if ( myFile.is_open() ){
+                                                myFile << p1.get_nick() << endl << p1.get_num_of_wins() << endl << p1.get_num_of_loses() << endl << p1.get_num_of_draws() << endl ;
+                                                myFile.close();
+                                        }
+                                        if ( myFile2.is_open() ){
+                                                myFile2 << p2.get_nick() << endl << p2.get_num_of_wins() << endl << p2.get_num_of_loses() << endl << p2.get_num_of_draws() << endl ;
+                                                myFile2.close();
+                                        }
+
 
                                 }
 
@@ -356,6 +424,18 @@ void __fastcall TForm1::put_character(TObject *Sender)
                                         Label1 -> Caption = "Wygral gracz ";
                                         Button2 -> Visible = true;
                                         Button3 -> Visible = true;
+
+                                        ofstream myFile (p1.get_nick().c_str());
+                                        ofstream myFile2 ( p2.get_nick().c_str());
+
+                                        if ( myFile.is_open() ){
+                                                myFile << p1.get_nick() << endl << p1.get_num_of_wins() << endl << p1.get_num_of_loses() << endl << p1.get_num_of_draws() << endl ;
+                                                myFile.close();
+                                        }
+                                        if ( myFile2.is_open() ){
+                                                myFile2 << p2.get_nick() << endl << p2.get_num_of_wins() << endl << p2.get_num_of_loses() << endl << p2.get_num_of_draws() << endl ;
+                                                myFile2.close();
+                                        }
                                 }
                         }
 
