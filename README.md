@@ -1,2 +1,2 @@
 # kolkoIkrzyzykBuilder
-Graphical versin of Tick Tac Toe
+Graphic versin of Tick Tac Toe
